@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Key Features:
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+📡 Advanced Streaming Protocols: Utilizes RTMP and WHIP for high-quality streaming.
+🌍 Efficient Ingress Generation: Streamlines the process of generating ingress for seamless streaming.
+🔗 Integrations with Streaming Software: Connects seamlessly with OBS and other popular streaming applications using Next.js.
+🔐 Robust Authentication System: Ensures secure access and user authentication.
+📷 Thumbnail Upload Feature: Allows easy upload of stream thumbnails for customization.
+👀 Live Viewer Count: Displays the number of live viewers in real-time.
+🚦 Dynamic Live Statuses: Keeps viewers updated with live statuses.
+💬 Real-Time Chat: Engages audiences with a real-time chat feature using sockets.
+🎨 Color-Coded Chat: Assigns a unique color to each viewer in the chat for easy identification.
+👥 Interactive Following System: Enables users to follow their favorite streamers.
+🚫 Comprehensive Blocking System: Offers a blocking mechanism for user safety and moderation.
+👢 Real-Time Participant Management: Allows streamers to kick participants during live streams.
+🎛️ Streamer Dashboard: Provides a dedicated dashboard for streamers and content creators.
+🐢 Slow Chat Mode: Manages chat activity with a slow chat option.
+🔒 Followers-Only Chat Mode: Enables exclusive chat access for followers.
+📴 Chat Control: Grants the ability to enable/disable chat during streams.
+🔽 Flexible Layout: Features a collapsible layout with options like theatre mode.
+📚 Sidebar with Following & Recommendations: Includes a sidebar for easy access to followed streams and recommendations.
+🏠 Home Page with Stream Recommendations: Curates a home page recommending streams, prioritizing live content.
+🔍 Customizable Search Results Page: Offers a distinct layout for search results.
+🔄 Webhooks Integration: Syncs user and live status information with the database using webhooks.
+🤝 Community Engagement: Encourages interaction through a dedicated community tab.
+🌈 Aesthetic Design: Boasts a visually appealing and user-friendly interface.
+⚡ High-Performance Application: Delivers a blazing fast user experience.
+📄 Server-Side Rendering (SSR): Implements SSR for improved performance and SEO.
+🗺️ Organized Routing & Layouts: Features grouped routes and layouts for better navigation.
+🗃️ MySQL Database: Utilizes MySQL for reliable data management.
+🚀 Streamlined Deployment: Simplifies the deployment process for quick and easy setup.
+```
