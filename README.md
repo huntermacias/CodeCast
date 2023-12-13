@@ -68,7 +68,19 @@
 - **perf**: Improve performance.
 - **test**: Add/remove/update tests.
 - **revert**: Reverts one or many previous commits.
+```
+Good:
+perf: optimize loading of items on landing page
+feat: send an email to the customer when a product is shipped
+fix: add the correct company name to the footer and replacing the dummy text
+revert: revert a previously introduced bug in items retrieving from database
 
+Bad:
+optimize landing page
+send email
+oops
+I think I fixed it this time?
+```
 ---
 
 ## Contributing

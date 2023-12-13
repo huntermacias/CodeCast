@@ -1,0 +1,8 @@
+sfc - stateless functional component
+auth vs (auth) -> adding parentheses doesn't add folder name to url.	
+	ex with auth folder: localhost:3000/auth/login 
+	ex with (auth) folder: localhost:3000/login 
+
+
+Every component created inside of /app is a 'server component' which
+will be used to serve the application on the server side of the application 
