@@ -1,13 +1,13 @@
 import { Navbar } from "../_components/navbar";
+import { Sidebar } from "../_components/sidebar";
 
-const BrowseLayout = ({
+const HomeLayout = ({
 	children
 }: {
 	children: React.ReactNode
 }) => {
 	return ( 
 		<>
-			<Navbar />
 			<div className="flex h-full pt-20">
 				{children}
 			</div>	
@@ -15,4 +15,5 @@ const BrowseLayout = ({
 	 );
 }
  
-export default BrowseLayout;
+export default HomeLayout;
+
