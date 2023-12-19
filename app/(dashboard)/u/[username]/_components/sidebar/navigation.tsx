@@ -14,8 +14,6 @@ import { NavItem, NavItemSkeleton } from "./nav-item";
 export const Navigation = () => {
   const pathname = usePathname();
   const { user } = useUser();
-  const notifications = { chat: 3, community: 1 }; // Example data
-
 
   const routes = [
     {
@@ -50,8 +48,6 @@ export const Navigation = () => {
     );
   }
 
-
-
   return (
     <ul className="space-y-2 px-2 pt-4 lg:pt-0">
      {routes.map((route) => (
@@ -61,8 +57,6 @@ export const Navigation = () => {
           icon={route.icon}
           href={route.href}
           isActive={pathname === route.href}
-          // notificationCount={notifications[route.label.toLowerCase()]}
-
         />
      ))}
     </ul>

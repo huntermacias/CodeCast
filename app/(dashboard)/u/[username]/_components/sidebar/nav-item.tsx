@@ -13,7 +13,6 @@ interface NavItemProps {
   label: string;
   href: string;
   isActive: boolean;
-  notificationCount?: number; // Default to zero if not provided
 };
 
 export const NavItem = ({
@@ -21,39 +20,31 @@ export const NavItem = ({
   label,
   href,
   isActive,
-  notificationCount = 0
 }: NavItemProps) => {
   const { collapsed } = useCreatorSidebar((state) => state);
 
   return (
-	
     <Button
       asChild
       variant="ghost"
       className={cn(
-        "w-full h-12 transition-colors duration-300 ease-in-out hover:bg-dark-hover rounded-md",
+        "w-full h-12",
         collapsed ? "justify-center" : "justify-start",
-        isActive && "bg-accent shadow-lg shadow-accent/50"
+        isActive && "bg-accent",
       )}
     >
-      <Link href={href} className="flex items-center gap-x-4 p-2 rounded-md">
-       
+      <Link href={href}>
+        <div className="flex items-center gap-x-4">
           <Icon className={cn(
-            "h-6 w-6 text-emerald-500",
+            "h-4 w-4",
             collapsed ? "mr-0" : "mr-2"
           )} />
-         {!collapsed && (
-            <>
-              <span className="text-white font-medium">
-                {label}
-              </span>
-              {notificationCount > 0 && (
-                <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full ml-2">
-                  {notificationCount}
-                </span>
-              )}
-			  </>
-			)}
+          {!collapsed && (
+            <span>
+              {label}
+            </span>
+          )}
+        </div>
       </Link>
     </Button>
   );
