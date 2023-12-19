@@ -9,11 +9,11 @@ export const getFollowedUsers = async () => {
       where: {
         followerId: self.id,
         following: {
-        //   blocking: {
-        //     none: {
-        //       blockedId: self.id,
-        //     },
-        //   },
+          blocking: {
+            none: {
+              blockedId: self.id,
+            },
+          },
         },
       },
       include: {

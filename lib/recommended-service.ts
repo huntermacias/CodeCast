@@ -1,58 +1,86 @@
-
-import { db } from "./db";
-import { getSelf } from "./auth-service";
-import { resolve } from "path";
-import { Lekton } from "next/font/google";
-
+import { db } from "@/lib/db";
+import { getSelf } from "@/lib/auth-service";
 
 export const getRecommended = async () => {
+  let userId;
 
-	let userId;
-	try {
-		const self = await getSelf();
-		userId = self.id;
-	} catch (e) {
-		userId = null;
-	}
+  try {
+    const self = await getSelf();
+    userId = self.id;
+  } catch {
+    userId = null;
+  }
 
-	let users = [];
-	if (userId){
-		users = await db.user.findMany({
+  let users = [];
 
-			orderBy: {
-				createdAt: "desc"
-			},
-			where: {
-				AND: [{
+  if (userId) {
+    users = await db.user.findMany({
+      where: {
+        AND: [
+          {
+            NOT: {
+              id: userId,
+            },
+          },
+          {
+            NOT: {
+              followedBy: {
+                some: {
+                  followerId: userId,
+                },
+              },
+            },
+          },
+          {
+            NOT: {
+              blocking: {
+                some: {
+                  blockedId: userId,
+                },
+              },
+            },
+          },
+        ],
+      },
+    //   include: {
+    //     stream: {
+    //       select: {
+    //         isLive: true,
+    //       },
+    //     },
+    //   },
+      orderBy: [
+        // {
+        //   stream: {
+        //     isLive: "desc",
+        //   }
+        // },
+        {
+          createdAt: "desc"
+        },
+      ]
+    })
+  } else {
+    users = await db.user.findMany({
+    //   include: {
+    //     stream: {
+    //       select: {
+    //         isLive: true,
+    //       },
+    //     },
+    //   },
+      orderBy: [
+        // {
+        //   stream: {
+        //     isLive: "desc",
+        //   }
+        // },
+        {
+          createdAt: "desc"
+        },
+      ]
+    });
+  }
 
-					NOT: {
-						id: userId,
-					},
-				},
-				{
-					NOT: {
-						followedBy: {
-							some: {
-								followerId: userId,
-							},
-						},
-					},
-				},
-			]
-			},
-		});
-	} else {
-
-		// await new Promise(resolve => setTimeout(resolve, 2000));
-		users = await db.user.findMany({
-			orderBy: {
-				createdAt: "desc"
-			},
-		});
-	}
-
-
-
-	return users;
-}
-
+  return users;
+};
