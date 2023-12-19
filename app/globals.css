@@ -113,10 +113,40 @@ body,
 }
 
 
-.neon-badge {
-  /* Style for live badge with neon effect */
+/* Example CSS styles */
+.bg-dark-hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust the color for hover state */
 }
 
-.bg-neon-hover {
-  /* background-color: #0f0f0f; Dark background for hover */
+.text-neon-blue {
+  color: #89CFF0; /* Neon blue */
+  text-shadow: 0 0 5px #89CFF0, 0 0 10px #89CFF0;
 }
+
+.bg-accent {
+  background-color: #6441a5; /* Replace with your accent color */
+}
+
+.shadow-accent {
+  box-shadow: 0 0 10px #6441a5; /* Replace with your shadow color */
+}
+
+
+/* Example CSS styles */
+.bg-dark-hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust the color for hover state */
+}
+
+.text-neon-blue {
+  color: #89CFF0; /* Neon blue */
+  text-shadow: 0 0 5px #89CFF0, 0 0 10px #89CFF0;
+}
+
+.bg-accent {
+  background-color: #6441a5; /* Twitch's primary purple color */
+}
+
+.shadow-accent {
+  box-shadow: 0 0 10px #a970ff; /* A lighter, neon-like purple for shadow */
+}
+

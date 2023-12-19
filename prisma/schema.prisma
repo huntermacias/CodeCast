@@ -1,35 +1,56 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
 
 generator client {
   provider = "prisma-client-js"
- 
-}
-
-datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
-  relationMode = "prisma"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 model User {
   id String @id @default(uuid())
-  username String @unique  
+  username String @unique
   imageUrl String @db.Text
   externalUserId String @unique
   bio String? @db.Text
-  tokens Int? @default(0)
 
   following Follow[] @relation("Following")
   followedBy Follow[] @relation("FollowedBy")
+
   blocking Block[] @relation("Blocking")
   blockedBy Block[] @relation("BlockedBy")
 
-  // stream Stream?
+  stream Stream?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Stream {
+  id String @id @default(uuid())
+  name String @db.Text
+  thumbnailUrl String? @db.Text
+
+  ingressId String? @unique
+  serverUrl String? @db.Text
+  streamKey String? @db.Text
+
+  isLive Boolean @default(false)
+  isChatEnabled Boolean @default(true)
+  isChatDelayed Boolean @default(false)
+  isChatFollowersOnly Boolean @default(false)
+
+  userId String @unique
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([ingressId])
+  @@fulltext([name])
 }
 
 model Follow {
@@ -47,31 +68,6 @@ model Follow {
   @@index([followerId])
   @@index([followingId])
 }
-
-// model Stream {
-//   id String @id @default(uuid())
-//   name String @db.Text
-//   thumbnailUrl String? @db.Text
-
-//   ingressId String? @unique
-//   serverUrl String? @db.Text
-//   streamKey String? @db.Text
-
-//   isLive Boolean @default(false)
-//   isChatEnabled Boolean @default(true)
-//   isChatDelayed Boolean @default(false)
-//   isChatFollowersOnly Boolean @default(false)
-
-//   userId String @unique
-//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-
-//   @@index([userId])
-//   @@index([ingressId])
-//   @@fulltext([name])
-// }
 
 model Block {
   id String @id @default(uuid())
