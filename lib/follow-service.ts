@@ -8,33 +8,25 @@ export const getFollowedUsers = async () => {
     const followedUsers = db.follow.findMany({
       where: {
         followerId: self.id,
-	  },
-    //     following: {
-    //       blocking: {
-    //         none: {
-    //           blockedId: self.id,
-    //         },
-    //       },
-    //     },
-    //   },
-    //   include: {
-    //     following: {
-    //       include: {
-    //         stream: {
-    //           select: {
-    //             isLive: true,
-    //           },
-    //         },
-    //       },
-    //     },
-    //   },,
-      orderBy: [
-        {
-        //   following: {
-        //     stream: {
-        //       isLive: "desc",
+        following: {
+        //   blocking: {
+        //     none: {
+        //       blockedId: self.id,
         //     },
         //   },
+        },
+      },
+      include: {
+		
+        following: true 
+      },
+      orderBy: [
+        {
+          following: {
+            // stream: {
+            //   isLive: "desc",
+            // },
+          },
         },
         {
           createdAt: "desc"
@@ -151,7 +143,6 @@ export const unfollowUser = async (id: string) => {
     },
     include: {
       following: true,
-	  follower: true,
     },
   });
 
