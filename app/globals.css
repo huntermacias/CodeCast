@@ -90,3 +90,33 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+
+/* Example of custom CSS */
+.text-neon-text {
+  color: #89CFF0; /* Neon blue */
+  text-shadow: 
+    0 0 10px rgba(137, 207, 240, 0.75), /* Outer glow */
+    0 0 20px rgba(137, 207, 240, 0.5),  /* Medium glow */
+    0 0 30px rgba(137, 207, 240, 0.25); /* Inner glow */
+  letter-spacing: 0.05em; /* Spacing for modern typography */
+  font-weight: 500; /* Medium font weight for sleekness */
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.text-neon-text:hover {
+  color: #a3daff; /* Slightly lighter blue on hover for interactivity */
+  text-shadow: 
+    0 0 15px rgba(163, 218, 255, 0.75),
+    0 0 25px rgba(163, 218, 255, 0.5),
+    0 0 35px rgba(163, 218, 255, 0.25);
+}
+
+
+.neon-badge {
+  /* Style for live badge with neon effect */
+}
+
+.bg-neon-hover {
+  /* background-color: #0f0f0f; Dark background for hover */
+}
