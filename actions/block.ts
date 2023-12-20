@@ -1,16 +1,16 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-// import { RoomServiceClient } from "livekit-server-sdk";
+import { RoomServiceClient } from "livekit-server-sdk";
 
 import { getSelf } from "@/lib/auth-service";
 import { blockUser, unblockUser } from "@/lib/block-service"
 
-// const roomService = new RoomServiceClient(
-//   process.env.LIVEKIT_API_URL!,
-//   process.env.LIVEKIT_API_KEY!,
-//   process.env.LIVEKIT_API_SECRET!,
-// );
+const roomService = new RoomServiceClient(
+  process.env.LIVEKIT_API_URL!,
+  process.env.LIVEKIT_API_KEY!,
+  process.env.LIVEKIT_API_SECRET!,
+);
 
 export const onBlock = async (id: string) => {
   const self = await getSelf();
