@@ -11,7 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-// import { updateUser } from "@/actions/user";
+import { updateUser } from "@/actions/user";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -28,14 +28,14 @@ export const BioModal = ({ initialValue }: BioModalProps) => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // startTransition(() => {
-    //   updateUser({ bio: value })
-    //     .then(() => {
-    //       toast.success("User bio updated");
-    //       closeRef.current?.click();
-    //     })
-    //     .catch(() => toast.error("Something went wrong"));
-    // });
+    startTransition(() => {
+      updateUser({ bio: value })
+        .then(() => {
+          toast.success("User bio updated");
+          closeRef.current?.click();
+        })
+        .catch(() => toast.error("Something went wrong"));
+    });
   };
 
   return (

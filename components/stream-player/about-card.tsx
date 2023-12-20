@@ -1,6 +1,6 @@
 "use client";
 
-// import { VerifiedMark } from "@/components/verified-mark";
+import { VerifiedMark } from "@/components/verified-mark";
 
 import { BioModal } from "./bio-modal";
 
@@ -30,7 +30,7 @@ export const AboutCard = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-x-2 font-semibold text-lg lg:text-2xl">
             About {hostName}
-            {/* <VerifiedMark /> */}
+            <VerifiedMark />
           </div>
           {isHost && <BioModal initialValue={bio} />}
         </div>

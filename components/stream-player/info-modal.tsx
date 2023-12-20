@@ -19,7 +19,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { updateStream } from "@/actions/stream";
-// import { UploadDropzone } from "@/lib/uploadthing";
+import { UploadDropzone } from "@/lib/uploadthing";
 
 interface InfoModalProps {
   initialName: string;
@@ -112,8 +112,7 @@ export const InfoModal = ({
               </div>
             ) : (
               <div className="rounded-xl border outline-dashed outline-muted">
-                upload file here
-                {/* <UploadDropzone
+                <UploadDropzone
                   endpoint="thumbnailUploader"
                   appearance={{
                     label: {
@@ -128,7 +127,7 @@ export const InfoModal = ({
                     router.refresh();
                     closeRef?.current?.click();
                   }}
-                /> */}
+                />
               </div>
             )}
           </div>

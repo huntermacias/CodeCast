@@ -7,10 +7,10 @@ import {
 } from "@livekit/components-react";
 
 import { Skeleton } from "@/components/ui/skeleton";
-// import { VerifiedMark } from "@/components/verified-mark";
+import { VerifiedMark } from "@/components/verified-mark";
 import { UserAvatar, UserAvatarSkeleton } from "@/components/user-avatar";
 
-// import { Actions, ActionsSkeleton } from "./actions";
+import { Actions, ActionsSkeleton } from "./actions";
 
 interface HeaderProps {
   imageUrl: string;
@@ -69,11 +69,11 @@ export const Header = ({
           )}
         </div>
       </div>
-      {/* <Actions
+      <Actions
         isFollowing={isFollowing}
         hostIdentity={hostIdentity}
         isHost={isHost}
-      /> */}
+      />
     </div>
   );
 };
@@ -88,7 +88,7 @@ export const HeaderSkeleton = () => {
           <Skeleton className="h-4 w-24" />
         </div>
       </div>
-      {/* <ActionsSkeleton /> */}
+      <ActionsSkeleton />
     </div>
   );
 };
